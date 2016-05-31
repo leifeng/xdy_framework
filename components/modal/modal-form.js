@@ -20,7 +20,7 @@ export default class ModalForm extends Component {
             <Modal
                 className="Modal__Bootstrap  modal-dialog"
                 isOpen={modalIsOpen}
-                closeTimeoutMS={150}
+                closeTimeoutMS={50}
                 onRequestClose={onCloseModal}
                 style={style}>
 

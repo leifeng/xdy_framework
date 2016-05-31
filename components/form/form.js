@@ -24,8 +24,9 @@ class MyForm extends Component {
     render() {
         return (
             <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="">
-                <MyInput title="姓名：" name="username" validations="minLength:6" validationError="必填项" required/>
-                <MyInput title="电话：" name="phone" validations="isNumeric" validationError="输入数字" required/>
+                {this.props.model.map((item, index) => {
+                    return <MyInput key={index} name={item.dataField} title={item.name} validations={item.valid} validationError={item.validError} required={item.require} type={item.type}/>
+                })}
                 <div className="form-group">
                     <div className="col-md-2">
                         <button type="submit" className="btn btn-success" disabled={!this.state.canSubmit}>保存</button>

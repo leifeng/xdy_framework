@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 const style = {
+    overlay: {
+        zIndex: '10'
+    },
     content: {
-        width:'300px',
-        height:'100px' 
-  }
+        width: '300px',
+        height: '100px'
+    }
 }
 export default class ModalSimple extends Component {
     shouldComponentUpdate(nextProps, nextState) {
@@ -13,12 +16,12 @@ export default class ModalSimple extends Component {
 
     render() {
         console.log('render modal')
-        const {modalIsOpen, onCloseModal,onConfirmModal ,msg, children,title} = this.props;
+        const {modalIsOpen, onCloseModal, onConfirmModal, msg, children, title} = this.props;
         return (
             <Modal
                 className="Modal__Bootstrap  modal-dialog"
                 isOpen={modalIsOpen}
-                closeTimeoutMS={150}
+                closeTimeoutMS={50}
                 onRequestClose={onCloseModal}
                 style={style}>
 
@@ -46,8 +49,8 @@ export default class ModalSimple extends Component {
 ModalSimple.propTypes = {
     modalIsOpen: React.PropTypes.bool,
     onCloseModal: React.PropTypes.func,
-    onConfirmModal:React.PropTypes.func,
+    onConfirmModal: React.PropTypes.func,
     children: React.PropTypes.element,
-    title:React.PropTypes.string,
+    title: React.PropTypes.string,
     msg: React.PropTypes.string
 };

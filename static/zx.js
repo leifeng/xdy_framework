@@ -30,9 +30,9 @@ function onHeaderDidMount() {
     });
 }
 function onSideDidMount() {
-    const $SIDEBAR_MENU = $('#sidebar');
-    const $lis = $SIDEBAR_MENU.children('li');
-    const $link = $lis.children('ul').find('a');
+    var $SIDEBAR_MENU = $('#sidebar');
+    var $lis = $SIDEBAR_MENU.children('li');
+    var $link = $lis.children('ul').find('a');
     $lis.children('a').on('click', function () {
         var $li = $(this).parent();
         if ($li.is('.active')) {
@@ -95,6 +95,6 @@ function onSideDidMount() {
 
 })(jQuery, 'smartresize');
 
-$(window).smartresize(() => {
-    this.onSetContentHeight();
+$(window).smartresize(function(){
+    onSetContentHeight();
 });

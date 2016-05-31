@@ -15,11 +15,43 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use('/static', express.static('static'));
 
-app.get('*', function(req, res) {
+// test
+app.get('/abc', function (req, res) {
+  res.json([
+    {
+      id: 1,
+      name: "oooo name 1",
+      price: 100
+    },
+    {
+      id: 2,
+      name: "oooo name 2",
+      price: 100
+    }, {
+      id: 3,
+      name: "oooo name 2",
+      price: 100
+    }, {
+      id: 4,
+      name: "oooo name 2",
+      price: 100
+    }])
+});
+app.delete('/abc/:id',function(req,res){
+    console.log(req.param('id'))
+    res.json([
+    {
+      id: 1,
+      name: "oooo name 1",
+      price: 100
+    }])
+})
+// !test
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, function(err) {
+app.listen(3000, function (err) {
   if (err) {
     console.log(err);
     return;
